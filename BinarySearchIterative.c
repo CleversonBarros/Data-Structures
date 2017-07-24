@@ -2,9 +2,9 @@
 
 int binarySearch(int *v, int size, int key)
 {
-	int right = 0, left = size - 1;
+	int left = 0, right = size - 1;
 	int mid;
-	while(right <= left)
+	while(left <= right)
 	{
 		mid = (left+right) / 2;
 		if(v[mid] == key)
@@ -13,11 +13,11 @@ int binarySearch(int *v, int size, int key)
 		}
 		else if(v[mid] < key)
 		{
-			right = mid + 1;
+			left = mid + 1;
 		}
 		else
 		{
-			left = mid - 1;
+			right = mid - 1;
 		}
 	}
 	return -1;
