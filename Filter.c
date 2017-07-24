@@ -3,12 +3,12 @@
 
 int even(int x)
 {
-	return (x % 2 == 0) ? 1 : 0;
+	return (x % 2 == 0) ? 0 : 1;
 }
 
 int odd(int x)
 {
-	return (x % 2 == 0) ? 0 : 1;
+	return (x % 2 == 0) ? 1 : 0;
 }
 
 int *filter(int *v, int size, int (*cmp)(int))
