@@ -11,7 +11,7 @@ int odd(int x)
 	return (x % 2 == 0) ? 1 : 0;
 }
 
-int *filter(int *v, int size, int (*cmp)(int))
+int *filter(int *v, int size, int (*cmp)(int), int *n)
 {
 	int i, j, *p;
 	p = malloc(1*sizeof(int));
@@ -28,13 +28,14 @@ int *filter(int *v, int size, int (*cmp)(int))
 		}
 	}
 
+	*n = j;
 	return p;
 
 }
 
 int main()
 {
-	int *v, i, n, *p;
+	int *v, i, n, *p, n2;
 	
 	printf("Digite o tamanho do array: ");
 	scanf("%d", &n);
@@ -45,13 +46,21 @@ int main()
 	{
 		scanf("%d",(v+i));
 	}
-	p = filter(v,n,even);
+	p = filter(v, n, odd, &n2);
 
-	printf("Após aplicar a função filter o novo array retornado foi:\n");
-	for(i = 0; i < sizeof(p)/sizeof(int); i++)
+	if(n2)
 	{
-		printf("%d ",p[i]);
+		printf("Após aplicar a função filter o novo array retornado foi:\n");
+		for(i = 0; i < n2; i++)
+		{
+			printf("%d ",p[i]);
+		}
+	}
+	else
+	{
+		printf("Não há nenhum valor que atenda aos requisitos de filtragem");
 	}
 	printf("\n");
 
 }
+
