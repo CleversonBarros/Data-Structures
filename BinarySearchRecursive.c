@@ -12,11 +12,11 @@ int binarySearch(int *v, int left, int right, int key)
 		}
 		else if(v[mid] < key)
 		{
-			binarySearch(v,mid+1,right,key);
+			return binarySearch(v,mid+1,right,key);
 		}
 		else
 		{
-			binarySearch(v,left,mid-1,key);
+			return binarySearch(v,left,mid-1,key);
 		}
 	}
 	
