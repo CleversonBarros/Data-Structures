@@ -1,7 +1,7 @@
 #include <stdio.h>
 void selectionSort(int *v, int n)
 {
-	int i, j, min, aux;
+	int i, j, min;
 	for(i = 0; i < n; i++)
 	{
 		min = i;
@@ -12,9 +12,9 @@ void selectionSort(int *v, int n)
 				min = j;
 			}
 		}
-		aux = v[i];
+		int temp = v[i];
 		v[i] = v[min];
-		v[min] = aux;
+		v[min] = temp;
 	}
 }
 
